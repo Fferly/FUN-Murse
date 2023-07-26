@@ -1,5 +1,8 @@
 'use strict'
 
+const morseSilence = '-...-';
+const murseSilence = '   ';
+
 // Взята версія 'Пласту'
 let dict = {
     'а' : '.-',
@@ -82,6 +85,8 @@ window.onload = () => {
         let murse = translateMorseToMurse(morse);
 
         murseField.value = murse.join('').trim();
+
+        createAndPlaySound(murse);
     }
 
     function translateLangToMorse(text) {
@@ -97,8 +102,7 @@ window.onload = () => {
         };
 
         return morseText.map(elem => {
-            const morseSilence = '-...-';
-            const murseSilence = '   ';
+            
 
             if (elem === morseSilence) {
                 return murseSilence;
@@ -111,5 +115,56 @@ window.onload = () => {
 
             return newElem + ' ';
         });
+    }
+
+    function createAndPlaySound(murse) {
+        let soundsSources = [];
+        let index = 0;
+
+        for (let i = 0; i < murse.length; i++) {
+            if (murse[i] === ' ') {
+                continue;
+            }
+
+            if (murse[i] === murseSilence) {
+                soundsSources.push({
+                    src: 'assets/mp3/mute.mp3',
+                    duration: 700
+                });
+                continue
+            }
+
+            let arr = murse[i].trim().split(' ');
+
+            for (let j = 0; j < arr.length; j++) {
+                switch(arr[j]) {
+                    case 'няв':
+                        soundsSources.push({
+                            src: 'assets/mp3/meow.mp3',
+                            duration: 700
+                        });
+                        break;
+                    case 'мур':
+                        soundsSources.push({
+                            src: 'assets/mp3/purr.mp3',
+                            duration: 2800
+                        });
+                        break;
+                }
+            }
+        }
+
+        (function playRecord() {
+            const record = new Howl({
+                src: [soundsSources[index].src],
+                
+                onend: () => {
+                    setTimeout(playRecord, soundsSources[index].duration);
+                    index++;
+                }
+            });
+    
+            record.play();
+        })();
     }
 }
