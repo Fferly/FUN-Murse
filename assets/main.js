@@ -129,9 +129,9 @@ window.onload = () => {
             if (murse[i] === murseSilence) {
                 soundsSources.push({
                     src: 'assets/mp3/mute.mp3',
-                    duration: 700
+                    duration: 500
                 });
-                continue
+                continue;
             }
 
             let arr = murse[i].trim().split(' ');
@@ -147,14 +147,23 @@ window.onload = () => {
                     case 'мур':
                         soundsSources.push({
                             src: 'assets/mp3/purr.mp3',
-                            duration: 2800
+                            duration: 1200
                         });
                         break;
                 }
             }
         }
 
+        const bgRecord = new Howl({
+            src: ['assets/mp3/bg.mp3'],
+            loop: true,
+        });
+
+        bgRecord.play();
+
         (function playRecord() {
+           
+
             const record = new Howl({
                 src: [soundsSources[index].src],
                 
@@ -163,7 +172,6 @@ window.onload = () => {
                     index++;
                 }
             });
-    
             record.play();
         })();
     }
