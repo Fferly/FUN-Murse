@@ -1,9 +1,107 @@
- * {
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
- }
+}
+
+body {
+    min-height: 100vh; /* Встановлюємо мінімальну висоту сторінки на весь екран */
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; 
+}
 
 textarea {
     resize: none;
+}
+
+header {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header::before {    
+    content: "";
+    background-image: url('img/cat_header.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+}
+
+.title {
+    width: 100vw;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Pacifico', sans-serif ;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.65);
+    left: 0vw;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 60px 200px;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+textarea {
+    border: 2px solid black;
+    font-family: sans-serif;
+    padding: 14px;
+    font-size: 20px;
+    margin: 35px;
+    margin-top: 0;
+}
+
+input {
+    font-size: 20px;
+    padding: 12px;
+    background: #000;
+    border: 2px solid black;
+    border-radius: 25px;
+    color: #fff;
+    transition: .3s;
+}
+
+input:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+footer {
+    background-color: #000000; /* Колір вашого футера */
+    color: #FFFFFF; /* Колір тексту у футері */
+    padding: 20px;
+    text-align: center;
+    position: fixed; /* Встановлюємо зафіксовану позицію */
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Зробимо футер на всю ширину екрану */
+    font-family: sans-serif;
+    font-size: large;
 }

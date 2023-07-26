@@ -73,10 +73,15 @@ window.onload = () => {
     startButton.onclick = () => {
         const inputText = langField.value;
 
+        if (inputText === '') {
+            alert('Спершу введіть текст =><=')
+            return;
+        }
+
         let morse = translateLangToMorse(inputText);
         let murse = translateMorseToMurse(morse);
 
-        murseField.value = murse.join('');
+        murseField.value = murse.join('').trim();
     }
 
     function translateLangToMorse(text) {
