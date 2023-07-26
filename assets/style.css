@@ -86,7 +86,7 @@ input {
     border-radius: 25px;
     color: #fff;
     transition: .3s;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 
 input:hover {
@@ -137,7 +137,6 @@ footer {
 
     footer {
         position: relative;
-        margin-top: 30px;
         margin-bottom: 50px;
     }
 
