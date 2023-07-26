@@ -86,6 +86,7 @@ input {
     border-radius: 25px;
     color: #fff;
     transition: .3s;
+    margin-bottom: 40px;
 }
 
 input:hover {
@@ -94,14 +95,14 @@ input:hover {
 }
 
 footer {
-    background-color: #000000; /* Колір вашого футера */
-    color: #FFFFFF; /* Колір тексту у футері */
+    background-color: #000000;
+    color: #FFFFFF;
     padding: 20px;
     text-align: center;
-    position: fixed; /* Встановлюємо зафіксовану позицію */
+    position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%; /* Зробимо футер на всю ширину екрану */
+    width: 100%;
     font-family: sans-serif;
     font-size: large;
 }
@@ -137,7 +138,7 @@ footer {
     footer {
         position: relative;
         margin-top: 30px;
-        margin-bottom: 60px;
+        margin-bottom: 50px;
     }
 
 }
