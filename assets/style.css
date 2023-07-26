@@ -108,6 +108,12 @@ footer {
 
 
 @media screen and (max-width: 420px) {
+    html, body {
+        width: auto !important; 
+        overflow-x: hidden !important
+    } 
+
+
     header {
         height: 200px;
         margin-bottom: 50px;
